@@ -1,5 +1,4 @@
-# madlib-cli
-
+# pythonic-garage-band
 
 **Author**: Ting Luo
 **Version**: 1.0.0
