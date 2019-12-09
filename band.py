@@ -33,6 +33,24 @@ class Band:
 
         return list
 
+    @staticmethod
+    def create_from_data(data):
+
+        lines = data.split('\n')
+        name = lines[0]
+        members = []
+
+        for i in range(1, len(lines)):
+            members_list = lines[i].split(' on ')
+            print(members_list)
+
+            if members_list[1] == 'Guitar':
+                members.append(Guitarist(members_list[0]))
+            elif members_list[1] == 'Bass':
+                members.append(Bassist(members_list[0]))
+            elif members_list[1] == 'Drum':
+                members.append(Drummer(members_list[0]))
+        return Band(name, members)
 
 class Musician:
 
@@ -59,15 +77,12 @@ class Guitarist(Musician):
     def __init__(self, name):
         super().__init__(name, 'guitar', 'guitar solo')
 
-
 class Bassist(Musician):
 
     def __init__(self, name):
         super().__init__(name, 'bass', 'bass solo')
 
-
 class Drummer(Musician):
 
     def __init__(self, name):
         super().__init__(name, 'drum', 'drum solo')
-
